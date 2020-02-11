@@ -11,11 +11,11 @@
   <p id="displayName"></p>
   <p id="statusMessage"></p>
   <p id="os"><b>OS:</b> </p>
-  <p id="language"></p>
-  <p id="version"></p>
-  <p id="isInClient"></p>
+  <p id="language"><b>Language:</b> </p>
+  <p id="version"><b>Version:</b> </p>
+  <p id="isInClient"><b>isInClient:</b> </p>
+  <p id="getAccessToken"><b>getAccessToken:</b> </p>
   <p id="isLoggedIn"></p>
-  <p id="getAccessToken"></p>
   <p id="getDecodedIDToken"></p>
   <p id="getFriendship"></p>
   <p id="type"></p>
@@ -34,6 +34,10 @@
   <script>
     function getEnvironment() {
       document.getElementById("os").append(liff.getOS())
+      document.getElementById("language").append(liff.language())
+      document.getElementById("version").append(liff.version())
+      document.getElementById("isInClient").append(liff.isInClient())
+      document.getElementById("getAccessToken").append(liff.getAccessToken())
     }
 
     async function runApp() {
