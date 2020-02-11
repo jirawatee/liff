@@ -10,7 +10,7 @@
   <p id="userId"></p>
   <p id="displayName"></p>
   <p id="statusMessage"></p>
-  <p id="os"></p>
+  <p id="os"><b>OS:</b> </p>
   <p id="language"></p>
   <p id="version"></p>
   <p id="isInClient"></p>
@@ -32,6 +32,10 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
+    function getEnvironment() {
+      document.getElementById("os").append(liff.getOS())
+    }
+
     async function runApp() {
     }
 
@@ -54,6 +58,7 @@
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
     }
     main()
+    getEnvironment()
   </script>
 
 <!-- 
