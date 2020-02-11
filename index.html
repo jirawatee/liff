@@ -6,17 +6,17 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <img id="pictureUrl">
-  <p id="userId"><b>UserId:</b> </p>
-  <p id="displayName"><b>DisplayName:</b> </p>
-  <p id="statusMessage"><b>StatusMessage:</b> </p>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
   <p id="getAccessToken"><b>getAccessToken:</b> </p>
+  <img id="pictureUrl">
+  <p id="userId"><b>UserId:</b> </p>
+  <p id="displayName"><b>DisplayName:</b> </p>
+  <p id="statusMessage"><b>StatusMessage:</b> </p>
+  <p id="getDecodedIDToken"><b>Email:</b> </p>
   <p id="isLoggedIn"></p>
-  <p id="getDecodedIDToken"></p>
   <p id="getFriendship"></p>
   <p id="type"></p>
   <p id="viewType"></p>
@@ -53,6 +53,7 @@
       document.getElementById("displayName").append(profile.displayName)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("getDecodedIDToken").append(liff.getDecodedIDToken().email)
     }
 
     function getEnvironment() {
