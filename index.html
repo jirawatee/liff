@@ -8,8 +8,8 @@
 <body>
   <img id="pictureUrl">
   <p id="userId"><b>UserId:</b> </p>
-  <p id="displayName"></p>
-  <p id="statusMessage"></p>
+  <p id="displayName"><b>DisplayName:</b> </p>
+  <p id="statusMessage"><b>StatusMessage:</b> </p>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
@@ -32,9 +32,6 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-    async function runApp() {
-    }
-
     async function sendMsg() {
     }
 
@@ -50,6 +47,14 @@
     function closed() {
     }
 
+    async function getUserProfile() {
+      const profile = await liff.getProfile()
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+    }
+
     function getEnvironment() {
       document.getElementById("os").append(liff.getOS())
       document.getElementById("language").append(liff.getLanguage())
@@ -61,6 +66,7 @@
     async function main() {
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
       getEnvironment()
+      getUserProfile()
     }
     main()
   </script>
