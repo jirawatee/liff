@@ -22,8 +22,8 @@
   <p id="roomId"><b>roomId:</b> </p>
   <p id="groupId"><b>groupId:</b> </p>
   <p id="friendship"><b>isFriendship:</b> </p>
+  <p id="scanCode"><b>Code:</b> </p>
   <p id="isLoggedIn"></p>
-  <p id="scanCode"></p>
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button onclick="openWindow()">Open Window</button>
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
@@ -32,16 +32,23 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-    function openWindow() {
-    }
-
-    async function scanCode() {
-    }
-
     function signOut() {
     }
 
     function closed() {
+      liff.closeWindow()
+    }
+
+    async function scanCode() {
+      const result = await liff.scanCode()
+      document.getElementById("scanCode").append(result.value)
+    }
+
+    function openWindow() {
+      liff.openWindow({
+        url: "https://line.me",
+        external: true
+      })
     }
 
     async function getFriendship() {
