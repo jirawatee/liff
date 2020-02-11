@@ -21,8 +21,8 @@
   <p id="utouId"><b>utouId:</b> </p>
   <p id="roomId"><b>roomId:</b> </p>
   <p id="groupId"><b>groupId:</b> </p>
+  <p id="friendship"><b>isFriendship:</b> </p>
   <p id="isLoggedIn"></p>
-  <p id="getFriendship"></p>
   <p id="scanCode"></p>
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button onclick="openWindow()">Open Window</button>
@@ -42,6 +42,11 @@
     }
 
     function closed() {
+    }
+
+    async function getFriendship() {
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
     }
 
     async function sendMsg() {
@@ -87,6 +92,7 @@
       getEnvironment()
       getUserProfile()
       getContext()
+      getFriendship()
     }
     main()
   </script>
