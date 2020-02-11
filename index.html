@@ -32,9 +32,6 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-    async function sendMsg() {
-    }
-
     function openWindow() {
     }
 
@@ -45,6 +42,18 @@
     }
 
     function closed() {
+    }
+
+    async function sendMsg() {
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+          }
+        ])
+      }
     }
 
     function getContext() {
