@@ -10,19 +10,19 @@
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
-  <p id="getAccessToken"><b>getAccessToken:</b> </p>
+  <p id="accessToken"><b>AccessToken:</b> </p>
   <img id="pictureUrl">
-  <p id="userId"><b>UserId:</b> </p>
-  <p id="displayName"><b>DisplayName:</b> </p>
-  <p id="statusMessage"><b>StatusMessage:</b> </p>
-  <p id="getDecodedIDToken"><b>Email:</b> </p>
+  <p id="userId"><b>userId:</b> </p>
+  <p id="displayName"><b>displayName:</b> </p>
+  <p id="statusMessage"><b>statusMessage:</b> </p>
+  <p id="decodedIDToken"><b>email:</b> </p>
+  <p id="type"><b>type:</b> </p>
+  <p id="viewType"><b>viewType:</b> </p>
+  <p id="utouId"><b>utouId:</b> </p>
+  <p id="roomId"><b>roomId:</b> </p>
+  <p id="groupId"><b>groupId:</b> </p>
   <p id="isLoggedIn"></p>
   <p id="getFriendship"></p>
-  <p id="type"></p>
-  <p id="viewType"></p>
-  <p id="utouId"></p>
-  <p id="roomId"></p>
-  <p id="groupId"></p>
   <p id="scanCode"></p>
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button onclick="openWindow()">Open Window</button>
@@ -47,13 +47,21 @@
     function closed() {
     }
 
+    function getContext() {
+      document.getElementById("type").append(liff.getContext().type)
+      document.getElementById("viewType").append(liff.getContext().viewType)
+      document.getElementById("utouId").append(liff.getContext().utouId)
+      document.getElementById("groupId").append(liff.getContext().groupId)
+      document.getElementById("roomId").append(liff.getContext().roomId)
+    }
+
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("userId").append(profile.userId)
       document.getElementById("displayName").append(profile.displayName)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("pictureUrl").src = profile.pictureUrl
-      document.getElementById("getDecodedIDToken").append(liff.getDecodedIDToken().email)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
 
     function getEnvironment() {
@@ -61,13 +69,14 @@
       document.getElementById("language").append(liff.getLanguage())
       document.getElementById("version").append(liff.getVersion())
       document.getElementById("isInClient").append(liff.isInClient())
-      document.getElementById("getAccessToken").append(liff.getAccessToken())
+      document.getElementById("accessToken").append(liff.getAccessToken())
     }
 
     async function main() {
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
       getEnvironment()
       getUserProfile()
+      getContext()
     }
     main()
   </script>
