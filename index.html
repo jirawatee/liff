@@ -32,14 +32,6 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-    function getEnvironment() {
-      document.getElementById("os").append(liff.getOS())
-      document.getElementById("language").append(liff.getLanguage())
-      document.getElementById("version").append(liff.getVersion())
-      document.getElementById("isInClient").append(liff.isInClient())
-      document.getElementById("getAccessToken").append(liff.getAccessToken())
-    }
-
     async function runApp() {
     }
 
@@ -56,6 +48,14 @@
     }
 
     function closed() {
+    }
+
+    function getEnvironment() {
+      document.getElementById("os").append(liff.getOS())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("isInClient").append(liff.isInClient())
+      document.getElementById("getAccessToken").append(liff.getAccessToken())
     }
 
     async function main() {
