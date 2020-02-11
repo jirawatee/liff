@@ -34,8 +34,8 @@
   <script>
     function getEnvironment() {
       document.getElementById("os").append(liff.getOS())
-      document.getElementById("language").append(liff.language())
-      document.getElementById("version").append(liff.version())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
       document.getElementById("isInClient").append(liff.isInClient())
       document.getElementById("getAccessToken").append(liff.getAccessToken())
     }
