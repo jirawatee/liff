@@ -41,11 +41,13 @@
 
     async function scanCode() {
     }
-
+    
     function openWindow() {
     }
 
     async function getFriendship() {
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
     }
 
     async function sendMsg() {
@@ -57,7 +59,7 @@
             "packageId": 1
           }
         ])
-        alert("Message sent.")
+        alert("Message sent")
       }
     }
 
