@@ -12,14 +12,12 @@
   <p id="displayName"><b>displayName: </b></p>
   <p id="statusMessage"><b>statusMessage: </b></p>
   <script>
+    // Query Params
     const queryString = decodeURIComponent(window.location.search);
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
     
     // Web Storage
-    document.getElementById("displayName").append(sessionStorage.getItem("displayName"));
-    const json = JSON.parse(localStorage.getItem("LIFF_STORE:1653832360-w6QkQpV4:decodedIDToken"))
-    document.getElementById("statusMessage").append(json.email);
   </script>
 </body>
 
