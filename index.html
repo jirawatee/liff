@@ -36,8 +36,8 @@
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
     function createUniversalLink() {
-      //const link1 = liff.permanentLink.createUrl()
-      //document.getElementById("universalLink").append(link1)
+      const link1 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink").append(link1)
 
       liff.permanentLink.setExtraQueryParam('param=9')
       const link2 = liff.permanentLink.createUrl()
@@ -124,10 +124,10 @@
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
       document.getElementById("isLoggedIn").append(liff.isLoggedIn())
       if (liff.isLoggedIn()) {
-        //getEnvironment()
-        //getUserProfile()
-        //getContext()
-        //getFriendship()
+        getEnvironment()
+        getUserProfile()
+        getContext()
+        getFriendship()
         createUniversalLink()
       } else {
         liff.login()
