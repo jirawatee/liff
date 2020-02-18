@@ -10,11 +10,15 @@
   <h1>Hello World!</h1>
   <p id="param"><b>Query Paran: </b></p>
   <p id="displayName"><b>displayName: </b></p>
+  <p id="statusMessage"><b>statusMessage: </b></p>
   <script>
     const queryString = decodeURIComponent(window.location.search);
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
+    
+    // Web Storage
     document.getElementById("displayName").append(sessionStorage.getItem("displayName"));
+    document.getElementById("statusMessage").append(sessionStorage.getItem("statusMessage"));
   </script>
 </body>
 
