@@ -18,7 +18,8 @@
     document.getElementById("param").append(params.get("param"));
     
     // Web Storage
-    document.getElementById("idToken").append(sessionStorage.getItem("idToken").email);
+    const json = JSON.parse(sessionStorage.getItem("idToken"))
+    document.getElementById("idToken").append(json.email);
     document.getElementById("statusMessage").append(localStorage.getItem("statusMessage"));
   </script>
 </body>
