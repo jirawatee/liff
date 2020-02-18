@@ -104,7 +104,7 @@
       document.getElementById("displayName").append(profile.displayName)
       document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
       
-      sessionStorage.setItem("idToken", liff.getDecodedIDToken())
+      sessionStorage.setItem("idToken", JSON.stringify(liff.getDecodedIDToken()))
       localStorage.setItem("statusMessage", profile.statusMessage)
     }
     
