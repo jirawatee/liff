@@ -18,7 +18,7 @@
     
     // Web Storage
     document.getElementById("displayName").append(sessionStorage.getItem("displayName"));
-    const json = localStorage.getItem("LIFF_STORE:1653832360-w6QkQpV4:decodedIDToken")
+    const json = JSON.parse(localStorage.getItem("LIFF_STORE:1653832360-w6QkQpV4:decodedIDToken"))
     document.getElementById("statusMessage").append(json.email);
   </script>
 </body>
