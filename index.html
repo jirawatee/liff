@@ -97,14 +97,15 @@
     }
 
     async function getUserProfile() {
-      alert(sessionStorage.getItem("displayName"))
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
       document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      
       sessionStorage.setItem("displayName", profile.displayName)
+      localStorage.setItem("statusMessage", profile.statusMessage)
     }
     
     function getEnvironment() {
