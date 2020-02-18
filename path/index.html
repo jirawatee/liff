@@ -9,7 +9,7 @@
 <body>
   <h1>Hello World!</h1>
   <p id="param"><b>Query Paran: </b></p>
-  <p id="displayName"><b>displayName: </b></p>
+  <p id="idToken"><b>idToken: </b></p>
   <p id="statusMessage"><b>statusMessage: </b></p>
   <script>
     // Query Params
@@ -18,6 +18,8 @@
     document.getElementById("param").append(params.get("param"));
     
     // Web Storage
+    document.getElementById("idToken").append(sessionStorage.getItem("idToken"));
+    document.getElementById("statusMessage").append(localStorage.getItem("statusMessage"));
   </script>
 </body>
 
