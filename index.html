@@ -24,7 +24,7 @@
   <p id="friendship"><b>isFriendship:</b> </p>
   <p id="scanCode"><b>Code:</b> </p>
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
-  <p id="universalLink"><b>Universal Link:</b> </p>
+  <p id="universalLink1"><b>Universal Link:</b> </p>
   <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
@@ -37,7 +37,7 @@
   <script>
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink").append(link1)
+      document.getElementById("universalLink1").append(link1)
 
       liff.permanentLink.setExtraQueryParam('param=9')
       const link2 = liff.permanentLink.createUrl()
@@ -97,12 +97,14 @@
     }
 
     async function getUserProfile() {
+      alert(sessionStorage.getItem("displayName"))
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
       document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      sessionStorage.setItem("displayName", profile.displayName)
     }
     
     function getEnvironment() {
