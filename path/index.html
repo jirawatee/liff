@@ -9,10 +9,12 @@
 <body>
   <h1>Hello World!</h1>
   <p id="param"><b>Query Paran: </b></p>
+  <p id="displayName"><b>displayName: </b></p>
   <script>
     const queryString = decodeURIComponent(window.location.search);
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
+    document.getElementById("displayName").append(sessionStorage.getItem("displayName"));
   </script>
 </body>
 
