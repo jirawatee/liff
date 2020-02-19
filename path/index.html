@@ -9,44 +9,23 @@
 <body>
   <h1>Hello World!</h1>
   <p id="param"><b>Query Paran: </b></p>
-  <p id="displayName"><b>displayName: </b></p>
-  <p id="statusMessage"><b>statusMessage: </b></p>
+  <img id="pictureUrl">
+  <p id="userId"><b>userId:</b> </p>
+  <p id="displayName"><b>displayName:</b> </p>
+  <p id="statusMessage"><b>statusMessage:</b> </p>
+  <p id="decodedIDToken"><b>email:</b> </p>
+
   <script>
     // Query Params
     const queryString = decodeURIComponent(window.location.search);
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
-    
-    // Web Storage
-    //const json = JSON.parse(sessionStorage.getItem("idToken"))
-    //document.getElementById("displayName").append(json.name);
-    //document.getElementById("statusMessage").append(localStorage.getItem("statusMessage"));
   </script>
 
   <script src="../js/vconsole.min.js"></script>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
     var vConsole = new VConsole()
-
-    async function getUserProfile() {
-      const profile = await liff.getProfile()
-      console.log(profile.pictureUrl)
-      console.log(profile.userId)
-      console.log(profile.statusMessage)
-      console.log(profile.displayName)
-      console.log(liff.getDecodedIDToken().email)
-    }
-
-    async function main() {
-      await liff.init({ liffId: "1653832360-w6QkQpV4" })
-      if (liff.isLoggedIn()) {
-        alert(liff.permanentLink.createUrl())
-        getUserProfile()
-      } else {
-        liff.login({redirectUri: "https://jirawatee.github.io/liff/path/"})
-      }
-    }
-    main()
   </script>
 </body>
 
