@@ -38,7 +38,7 @@
       if (liff.isLoggedIn()) {
         getUserProfile()
       } else {
-        liff.login()
+        liff.login({ redirectUri: "https://jirawatee.github.io/liff/path"} )
       }
     }
     main()
