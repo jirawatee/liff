@@ -10,6 +10,11 @@
 <body>
   <h1>Hello World!</h1>
   <p id="param"><b>Query Param: </b></p>
+  <img id="pictureUrl">
+  <p id="userId"><b>userId:</b> </p>
+  <p id="displayName"><b>displayName:</b> </p>
+  <p id="statusMessage"><b>statusMessage:</b> </p>
+  <p id="decodedIDToken"><b>email:</b> </p>
   
   <script>
     // Query Params
@@ -18,7 +23,26 @@
     document.getElementById("param").append(params.get("param"));
   </script>
 
-  <!-- <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script> -->
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script>
+    async function getUserProfile() {
+      const profile = await liff.getProfile()
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+    }
+    async function main() {
+      await liff.init({ liffId: "1653832360-w6QkQpV4" })
+      if (liff.isLoggedIn()) {
+        getUserProfile()
+      } else {
+        liff.login()
+      }
+    }
+    main()
+  </script>
 </body>
 
 </html>
