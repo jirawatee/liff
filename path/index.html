@@ -18,6 +18,15 @@
     document.getElementById("param").append(params.get("param"));
     
     // Web Storage
+    const json = JSON.parse(sessionStorage.getItem("idToken"))
+    document.getElementById("displayName").append(json.name);
+    document.getElementById("statusMessage").append(localStorage.getItem("statusMessage"));
+  </script>
+
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script>
+    await liff.init({ liffId: "1653832360-w6QkQpV4" })
+    alert(liff.permanentLink.createUrl())
   </script>
 </body>
 
