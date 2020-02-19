@@ -23,11 +23,24 @@
     //document.getElementById("statusMessage").append(localStorage.getItem("statusMessage"));
   </script>
 
+  <script src="js/vconsole.min.js"></script>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
+    var vConsole = new VConsole()
+    
+    async function getUserProfile() {
+      const profile = await liff.getProfile()
+      console.log(profile.pictureUrl)
+      console.log(profile.userId)
+      console.log(profile.statusMessage)
+      console.log(profile.displayName)
+      console.log(liff.getDecodedIDToken().email)
+    }
+
     async function main() {
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
       alert(liff.permanentLink.createUrl())
+      getUserProfile()
     }
     main()
   </script>
