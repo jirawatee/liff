@@ -33,6 +33,8 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
+  <!-- <script src="js/vconsole.min.js"></script> -->
+  <!-- <script>var vConsole = new VConsole()</script> -->
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
     function createUniversalLink() {
@@ -103,9 +105,6 @@
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
       document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
-      
-      sessionStorage.setItem("idToken", JSON.stringify(liff.getDecodedIDToken()))
-      localStorage.setItem("statusMessage", profile.statusMessage)
     }
     
     function getEnvironment() {
@@ -138,8 +137,5 @@
     }
     main()
   </script>
-
-  <!-- <script src="js/vconsole.min.js"></script> -->
-  <!-- <script>var vConsole = new VConsole()</script> -->
 </body>
 </html>
