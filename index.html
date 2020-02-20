@@ -29,6 +29,7 @@
   <p><a href="https://jirawatee.github.io/liff/path/?param=1">Link to Path</a></p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
+  <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
@@ -80,6 +81,16 @@
           window.location = "https://line.me/R/ti/p/@178yfyoa"
         }
       }
+    }
+
+    async function sendShare() {
+      await window.liff.shareTargetPicker([
+        {
+          type: "text",
+          text: "this is a test"
+        }
+      ])
+      alert("ShareTargetPicker was launched")
     }
 
     async function sendMsg() {
