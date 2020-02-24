@@ -84,10 +84,13 @@
 
     async function sendShare() {
       await liff.shareTargetPicker([
-        "type": "sticker",
-        "stickerId": 2,
-        "packageId": 1
+        {
+          "type": "sticker",
+          "stickerId": 2,
+          "packageId": 1
+        }
       ])
+      alert("ShareTargetPicker was launched")
     }
 
     async function sendMsg() {
