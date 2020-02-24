@@ -23,7 +23,7 @@
     document.getElementById("param").append(params.get("param"));
   </script>
 
-  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script src="https://line-objects-internal.com/assets/liff/edge/2.1/sdk.js"></script>
   <script>
     async function getUserProfile() {
       const profile = await liff.getProfile()
@@ -34,7 +34,7 @@
       document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
     async function main() {
-      await liff.init({ liffId: "1653832360-w6QkQpV4" })
+      await liff.init({ liffId: "1651773812-V9E6maKp" })
       if (liff.isLoggedIn()) {
         getUserProfile()
       } else {
