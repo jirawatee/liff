@@ -85,9 +85,49 @@
     async function sendShare() {
       await liff.shareTargetPicker([
         {
-          "type": "sticker",
-          "stickerId": 2,
-          "packageId": 1
+          "type": "imagemap",
+      "baseUrl": "https://charabizasia.files.wordpress.com/2017/07/main-1.jpg?w=1040",
+      "altText": "This is an imagemap",
+      "baseSize": {
+          "width": 1040,
+          "height": 623
+      },
+      "video": {
+          "originalContentUrl": "https://mokmoon.com/videos/Brown.mp4",
+          "previewImageUrl": "https://linefriends.com/img/bangolufsen/img_og.jpg",
+          "area": {
+              "x": 260,
+              "y": 155,
+              "width": 540,
+              "height": 360
+          },
+          "externalLink": {
+              "linkUri": "https://line.me",
+              "label": "See More"
+          }
+      },
+      "actions": [
+          {
+              "type": "uri",
+              "linkUri": "https://developers.line.biz",
+              "area": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 320,
+                  "height": 320
+              }
+          },
+          {
+              "type": "message",
+              "text": "Hello",
+              "area": {
+                  "x": 720,
+                  "y": 303,
+                  "width": 320,
+                  "height": 320
+              }
+          }
+      ]
         }
       ])
       alert("ShareTargetPicker was launched")
