@@ -85,9 +85,228 @@
     async function sendShare() {
       await liff.shareTargetPicker([
         {
-          "type": "sticker",
-          "stickerId": 1,
-          "packageId": 1
+          "type": "flex",
+"altText": "Flex Message",
+"contents": {
+  "type": "bubble",
+  "size": "giga",
+  "hero": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://www.apple.com/v/iphone/home/ab/images/overview/hero/hero_iphone11_pro__je9i781j99u2_large_2x.jpg",
+        "size": "full",
+        "aspectRatio": "16:9",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "uri": "http://linecorp.com/"
+        }
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "iPhone 11 Pro",
+            "color": "#ffffff",
+            "size": "xl",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "Pro cameras. Pro display. Pro performance.",
+            "color": "#efefef",
+            "size": "sm"
+          }
+        ],
+        "position": "absolute",
+        "offsetStart": "0px",
+        "offsetEnd": "0px",
+        "paddingAll": "20px",
+        "offsetBottom": "0px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "filler"
+          }
+        ],
+        "backgroundColor": "#ffffff32",
+        "position": "absolute",
+        "paddingAll": "48px",
+        "offsetBottom": "0px",
+        "offsetEnd": "0px",
+        "offsetStart": "0px"
+      }
+    ]
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "xxx",
+        "contents": [
+          {
+            "type": "span",
+            "text": "6 colors ",
+            "weight": "bold"
+          },
+          {
+            "type": "span",
+            "text": "are available"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "backgroundColor": "#ba0c2e",
+            "width": "10%",
+            "paddingAll": "8px",
+            "paddingStart": "16px"
+          }
+        ],
+        "backgroundColor": "#ebebeb",
+        "cornerRadius": "16px",
+        "height": "40px",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "backgroundColor": "#aee1cd",
+            "width": "20%",
+            "paddingStart": "16px",
+            "paddingAll": "8px"
+          }
+        ],
+        "backgroundColor": "#ebebeb",
+        "cornerRadius": "16px",
+        "height": "40px",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "backgroundColor": "#ffe681",
+            "width": "40%",
+            "paddingStart": "16px",
+            "paddingAll": "8px"
+          }
+        ],
+        "backgroundColor": "#ebebeb",
+        "cornerRadius": "16px",
+        "height": "40px",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "backgroundColor": "#d1cdda",
+            "width": "60%",
+            "paddingStart": "16px",
+            "paddingAll": "8px"
+          }
+        ],
+        "backgroundColor": "#ebebeb",
+        "cornerRadius": "16px",
+        "height": "40px",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "backgroundColor": "#1f2020",
+            "width": "80%",
+            "paddingStart": "16px",
+            "paddingAll": "8px"
+          }
+        ],
+        "backgroundColor": "#ebebeb",
+        "cornerRadius": "16px",
+        "height": "40px",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "backgroundColor": "#f9f6ef",
+            "width": "100%",
+            "paddingStart": "16px",
+            "paddingAll": "8px"
+          }
+        ],
+        "backgroundColor": "#ebebeb",
+        "cornerRadius": "16px",
+        "height": "40px",
+        "margin": "md"
+      }
+    ],
+    "spacing": "md"
+  }
+}
         }
       ])
       alert("ShareTargetPicker was launched")
