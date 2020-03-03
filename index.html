@@ -16,9 +16,9 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-    async function sendMsg() {
+    function sendMsg() {
       if (liff.getContext().type !== "none") {
-        await liff.sendMessages([
+        liff.sendMessages([
           {
             "type": "sticker",
             "stickerId": 2,
@@ -42,7 +42,7 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "BROWN'S ADVENTURE 2",
+                  "text": "BROWN'S ADVENTURE",
                   "size": "xl",
                   "gravity": "center",
                   "weight": "bold",
