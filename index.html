@@ -12,7 +12,6 @@
 <body>
   <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
   <button id="btnLogin" onclick="liff.login()">Log In</button>
-  <button id="btnSend" onclick="sendMsg()">sendMessages</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <script src="js/vconsole.min.js"></script>
   <script>
@@ -21,18 +20,6 @@
   </script>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-    function sendMsg() {
-      if (liff.getContext().type !== "none") {
-        liff.sendMessages([
-          {
-            "type": "sticker",
-            "stickerId": 2,
-            "packageId": 1
-          }
-        ])
-        alert("Message sent")
-      }
-    }
     function sendShare() {
       liff.shareTargetPicker([
         {
@@ -134,7 +121,7 @@
           }
         }
       ])
-      //liff.closeWindow()
+      alert("555")
     }
     function logOut() {
       liff.logout()
@@ -144,7 +131,6 @@
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
       if (liff.isLoggedIn()) {
         document.getElementById("btnShare").style.display = "block"
-        document.getElementById("btnSend").style.display = "block"
         if (!liff.isInClient()) {
           document.getElementById("btnLogOut").style.display = "block"
         }
