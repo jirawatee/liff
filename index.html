@@ -15,8 +15,8 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-    async function sendShare() {
-      await liff.shareTargetPicker([
+    function sendShare() {
+      liff.shareTargetPicker([
         {
           "type": "flex",
           "altText": "Flex Message",
