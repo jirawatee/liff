@@ -12,9 +12,22 @@
 <body>
   <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
   <button id="btnLogin" onclick="liff.login()">Log In</button>
+  <button id="btnSend" onclick="sendMsg()">sendMessages</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
+    async function sendMsg() {
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 2,
+            "packageId": 1
+          }
+        ])
+        alert("Message sent")
+      }
+    }
     function sendShare() {
       liff.shareTargetPicker([
         {
