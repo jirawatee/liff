@@ -139,6 +139,7 @@
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
       if (liff.isLoggedIn()) {
         document.getElementById("btnShare").style.display = "block"
+        document.getElementById("btnSend").style.display = "block"
         if (!liff.isInClient()) {
           document.getElementById("btnLogOut").style.display = "block"
         }
