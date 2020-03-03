@@ -137,7 +137,7 @@
     }
 
     async function main() {
-      liff.ready.then(() => {
+      //liff.ready.then(() => {
         document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         if (liff.isLoggedIn()) {
           getEnvironment()
@@ -148,7 +148,7 @@
         } else {
           liff.login()
         }
-      })
+      //})
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
     }
     main()
