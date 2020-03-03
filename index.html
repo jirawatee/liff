@@ -40,7 +40,7 @@
     var vConsole = new VConsole()
     console.log("Hello World!")
   </script>
-  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk2.js"></script>
   <script>
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
@@ -137,7 +137,7 @@
     }
 
     async function main() {
-      await liff.init({ liffId: "1653832360-w6QkQpV45" })
+      await liff.init({ liffId: "1653832360-w6QkQpV4" })
       await liff.ready
       document.getElementById("isLoggedIn").append(liff.isLoggedIn())
       if (liff.isLoggedIn()) {
