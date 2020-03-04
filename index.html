@@ -24,9 +24,6 @@
   <p id="friendship"><b>isFriendship:</b> </p>
   <p id="scanCode"><b>Code:</b> </p>
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
-  <p id="universalLink1"><b>Universal Link:</b> </p>
-  <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
-  <p><a href="https://jirawatee.github.io/liff/path/?param=1">Link to Path</a></p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
@@ -35,22 +32,8 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  <script src="js/vconsole.min.js"></script>
-  <script>
-    var vConsole = new VConsole()
-    console.log("Hello World!")
-  </script>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
-    function createUniversalLink() {
-      const link1 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink1").append(link1)
-
-      liff.permanentLink.setExtraQueryParam('param=9')
-      const link2 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink2").append(link2)
-    }
-
     function logOut() {
       liff.logout()
       window.location.reload()
@@ -144,7 +127,6 @@
           getUserProfile()
           getContext()
           getFriendship()
-          createUniversalLink()
         } else {
           liff.login()
         }
