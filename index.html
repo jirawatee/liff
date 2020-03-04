@@ -24,6 +24,9 @@
   <p id="friendship"><b>isFriendship:</b> </p>
   <p id="scanCode"><b>Code:</b> </p>
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
+  <p id="universalLink1"><b>Universal Link:</b> </p>
+  <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
+  <p><a href="https://jirawatee.github.io/liff/path/?param=1">Link to Path</a></p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
@@ -32,21 +35,51 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
+  <script src="js/vconsole.min.js"></script>
+  <script>
+    var vConsole = new VConsole()
+    console.log("Hello World!")
+  </script>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
+    function createUniversalLink() {
+      const link1 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink1").append(link1)
+
+      liff.permanentLink.setExtraQueryParam('param=9')
+      const link2 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink2").append(link2)
+    }
+
     function logOut() {
+      liff.logout()
+      window.location.reload()
     }
 
     function closed() {
+      liff.closeWindow()
     }
 
     async function scanCode() {
+      const result = await liff.scanCode()
+      document.getElementById("scanCode").append(result.value)
     }
     
     function openWindow() {
+      liff.openWindow({
+        url: "https://line.me",
+        external: true
+      })
     }
 
     async function getFriendship() {
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
+      if (!friend.friendFlag) {
+        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+          window.location = "https://line.me/R/ti/p/@178yfyoa"
+        }
+      }
     }
 
     async function sendShare() {
@@ -104,11 +137,19 @@
     }
 
     async function main() {
+      liff.ready.then(() => {
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+        if (liff.isLoggedIn()) {
+          getEnvironment()
+          getUserProfile()
+          getContext()
+          getFriendship()
+          createUniversalLink()
+        } else {
+          liff.login()
+        }
+      })
       await liff.init({ liffId: "1653832360-w6QkQpV4" })
-      getEnvironment()
-      getUserProfile()
-      getContext()
-      //getFriendship()
     }
     main()
   </script>
