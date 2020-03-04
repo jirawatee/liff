@@ -26,7 +26,7 @@
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
-  <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
+  <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
@@ -34,6 +34,15 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
+    async function shareMsg() {
+      await liff.shareTargetPicker([
+        {
+          type: "text",
+          text: "This message was sent by ShareTargetPicker"
+        }
+      ])
+    }
+    
     function logOut() {
       liff.logout()
       window.location.reload()
@@ -63,15 +72,6 @@
           window.location = "https://line.me/R/ti/p/@178yfyoa"
         }
       }
-    }
-
-    async function sendShare() {
-      await liff.shareTargetPicker([
-        {
-          type: "text",
-          text: "This message was sent by ShareTargetPicker"
-        }
-      ])
     }
 
     async function sendMsg() {
